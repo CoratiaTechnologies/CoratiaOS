@@ -82,7 +82,7 @@ jobs:
     strategy:
       matrix:
         docker: [bootstrap, core]
-        project: [blueos]
+        project: [coratiaos]
         platforms: ["linux/arm/v7,linux/arm64/v8,linux/amd64"]
     steps:
       - name: Checkout
@@ -288,15 +288,15 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         run: |
           sudo apt install zip
-          zip BlueOS-raspberry.zip deploy/pimod/blueos.img
+          zip CoratiaOS-raspberry.zip deploy/pimod/coratiaos.img
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         timeout-minutes: 120
         with:
           # We use the .img to avoid a zip of a zip
-          name: BlueOS-raspberry.zip
-          path: deploy/pimod/blueos.img
+          name: CoratiaOS-raspberry.zip
+          path: deploy/pimod/coratiaos.img
           if-no-files-found: error
           retention-days: 7
 
