@@ -603,15 +603,15 @@ export default Vue.extend({
         },
       ]
     },
-    git_info(): string {
-      return import.meta.env.VITE_APP_GIT_DESCRIBE
-    },
-    git_info_url(): string {
-      return convertGitDescribeToUrl(import.meta.env.VITE_APP_GIT_DESCRIBE)
-    },
-    build_date(): string {
-      return import.meta.env.VITE_BUILD_DATE
-    },
+    // git_info(): string {
+    //   return import.meta.env.VITE_APP_GIT_DESCRIBE
+    // },
+    // git_info_url(): string {
+    //   return convertGitDescribeToUrl(import.meta.env.VITE_APP_GIT_DESCRIBE)
+    // },
+    // build_date(): string {
+    //   return import.meta.env.VITE_BUILD_DATE
+    // },
     blueos_logo(): string {
       return settings.is_dark_theme ? blueos_white : blueos_blue
     },
