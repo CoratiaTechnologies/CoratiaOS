@@ -15,9 +15,9 @@
           type="info"
           elevation="2"
         >
-          Turn on Pirate mode to view all available BlueOS versions, including previous installs
+          Turn on Pirate mode to view all available CoratiaOS versions, including previous installs
           stored onboard, as well as past and current stable, beta, and development releases
-          downloadable from Blue Robotics.
+          downloadable from Coratia Technologies.
         </v-alert>
 
         <h2>Current Version</h2>
@@ -220,7 +220,7 @@ export default Vue.extend({
 
   },
   data() {
-    const default_repository = 'bluerobotics/blueos-core'
+    const default_repository = 'coratia/coratiaos-core'
     return {
       settings,
       bootstrap_version: undefined as (undefined | string),
