@@ -13,7 +13,7 @@ from bootstrap.bootstrap import Bootstrapper
 SAMPLE_JSON = """{
     "core": {
         "tag": "master",
-        "image": "bluerobotics/blueos-core",
+        "image": "coratia/coratiaos-core",
         "enabled": true,
         "webui": false,
         "network": "host",
