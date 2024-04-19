@@ -180,9 +180,9 @@ export default Vue.extend({
     current_board(): FlightController | null {
       return autopilot.current_board
     },
-    firmware_info(): FirmwareInfo | null {
-      return autopilot.firmware_info
-    },
+    // firmware_info(): FirmwareInfo | null {
+    //   return autopilot.firmware_info
+    // },
     vehicle_type(): string | null {
       return autopilot.vehicle_type
     },
