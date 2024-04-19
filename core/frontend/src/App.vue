@@ -345,7 +345,7 @@ import settings from '@/libs/settings'
 import helper from '@/store/helper'
 import wifi from '@/store/wifi'
 import { Service } from '@/types/helper'
-import { convertGitDescribeToUrl } from '@/utils/helper_functions'
+// import { convertGitDescribeToUrl } from '@/utils/helper_functions'
 import updateTime from '@/utils/update_time'
 import * as VCU from '@/utils/version_chooser'
 
