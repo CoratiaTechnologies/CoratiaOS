@@ -161,4 +161,4 @@ for TUPLE in "${SERVICES[@]}"; do
     create_service "$NAME" "$EXECUTABLE" "$MEMORY_LIMIT_MB"
 done
 
-echo "BlueOS running!"
+echo "CoratiaOS running!"
