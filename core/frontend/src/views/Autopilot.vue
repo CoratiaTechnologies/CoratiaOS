@@ -138,12 +138,12 @@ export default Vue.extend({
   },
   computed: {
     autopilot_info(): Record<string, string> {
-      let version = 'Unknown'
-      if (this.firmware_info) {
-        version = `${this.firmware_info.version} (${this.firmware_info.type})`
-      }
+      // let version = 'Unknown'
+      // if (this.firmware_info) {
+      //   version = `${this.firmware_info.version} (${this.firmware_info.type})`
+      // }
 
-    const record: Record<string, string> = {
+      const record: Record<string, string> = {
         // 'Board name': this.current_board?.name ?? 'Unknown',
         // Manufacturer: this.current_board?.manufacturer ?? 'Unknown',
         // 'Mavlink platform': this.current_board?.platform ?? 'Unknown',
