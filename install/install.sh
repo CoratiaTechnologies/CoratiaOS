@@ -14,7 +14,7 @@ RUNNING_IN_CI=0 # default to not running CI mode/docker-in-docker
 usage_help()
 {
     cat <<EOF
-BlueOS Installer
+CoratiaOS Installer
 Usage: install.sh [options]
 
 Options:
@@ -196,9 +196,9 @@ command -v raspi-config && (
 )
 
 echo "Downloading bootstrap"
-BLUEOS_BOOTSTRAP="bluerobotics/blueos-bootstrap:$VERSION" # Use current version
-BLUEOS_CORE="bluerobotics/blueos-core:$VERSION" # We don't have a stable tag yet
-BLUEOS_FACTORY="bluerobotics/blueos-core:factory" # used for "factory reset"
+BLUEOS_BOOTSTRAP="coratia/coratiaos-bootstrap:$VERSION" # Use current version
+BLUEOS_CORE="coratia/coratiaos-core:$VERSION" # We don't have a stable tag yet
+BLUEOS_FACTORY="coratia/coratiaos-core:factory" # used for "factory reset"
 
 docker pull $BLUEOS_BOOTSTRAP
 docker pull $BLUEOS_CORE
@@ -218,7 +218,7 @@ docker create \
     $BLUEOS_BOOTSTRAP
 
 # add docker entry to rc.local
-sed -i "\%^exit 0%idocker start blueos-bootstrap" /etc/rc.local || echo "Failed to add docker start on rc.local, BlueOS will not start on boot!"
+sed -i "\%^exit 0%idocker start blueos-bootstrap" /etc/rc.local || echo "Failed to add docker start on rc.local, CoratiaOS will not start on boot!"
 
 # Configure network settings
 ## This should be after everything, otherwise network problems can happen
