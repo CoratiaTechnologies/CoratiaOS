@@ -117,7 +117,7 @@ class VersionChooser:
 
         Args:
             request (web.Request): http request from aiohttp
-            repository (str): name of the image, such as bluerobotics/blueos-core
+            repository (str): name of the image, such as coratia/coratiaos-core
             tag (str): image tag
 
         Returns:
@@ -197,7 +197,7 @@ class VersionChooser:
 
         HOME = "/root"
         bootstrap_config = {
-            "Image": f"bluerobotics/blueos-bootstrap:{tag}",
+            "Image": f"coratia/coratiaos-bootstrap:{tag}",
             "HostConfig": {
                 "RestartPolicy": {"Name": "unless-stopped"},
                 "NetworkMode": "host",
@@ -336,7 +336,7 @@ class VersionChooser:
         """Returns versions available locally and in the remote
 
         Args:
-            repository (str): repository name (such as bluerobotics/blueos-core)
+            repository (str): repository name (such as coratia/coratiaos-core)
             tag (str): tag (such as "master" or "latest")
 
         Returns:
