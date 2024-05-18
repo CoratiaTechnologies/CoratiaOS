@@ -296,7 +296,7 @@ jobs:
         with:
           # We use the .img to avoid a zip of a zip
           name: CoratiaOS-raspberry.zip
-          path: deploy/pimod/coratiaos.img
+          path: deploy/pimod/blueos.img
           if-no-files-found: error
           retention-days: 7
 
