@@ -12,6 +12,7 @@
         type="info"
         elevation="2"
         dismissible
+        color="yellow"
       >
         <h3>Welcome to CoratiaOS!</h3>
         Before you start, we highly recommend <a
