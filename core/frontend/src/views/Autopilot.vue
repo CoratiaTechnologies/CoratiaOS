@@ -101,9 +101,9 @@
 <script lang="ts">
 import Vue from 'vue'
 
-import ArduPilotBanner from '@/assets/img/banners/ArduPilot.svg'
-import OpenPilotBanner from '@/assets/img/banners/OpenPilot.svg'
-import PX4Banner from '@/assets/img/banners/PX4.svg'
+// import ArduPilotBanner from '@/assets/img/banners/ArduPilot.svg'
+// import OpenPilotBanner from '@/assets/img/banners/OpenPilot.svg'
+// import PX4Banner from '@/assets/img/banners/PX4.svg'
 import * as AutopilotManager from '@/components/autopilot/AutopilotManagerUpdater'
 import {
   fetchAvailableBoards, fetchCurrentBoard, fetchFirmwareInfo, fetchVehicleType,
@@ -157,18 +157,18 @@ export default Vue.extend({
 
       return record
     },
-    banner(): string {
-      switch (autopilot_data.autopilot_type) {
-        case MavAutopilot.MAV_AUTOPILOT_ARDUPILOTMEGA:
-          return ArduPilotBanner
-        case MavAutopilot.MAV_AUTOPILOT_OPENPILOT:
-          return OpenPilotBanner
-        case MavAutopilot.MAV_AUTOPILOT_PX4:
-          return PX4Banner
-        default:
-          return undefined
-      }
-    },
+    // banner(): string {
+    //   switch (autopilot_data.autopilot_type) {
+    //     case MavAutopilot.MAV_AUTOPILOT_ARDUPILOTMEGA:
+    //       return ArduPilotBanner
+    //     case MavAutopilot.MAV_AUTOPILOT_OPENPILOT:
+    //       return OpenPilotBanner
+    //     case MavAutopilot.MAV_AUTOPILOT_PX4:
+    //       return PX4Banner
+    //     default:
+    //       return undefined
+    //   }
+    // },
     isLinuxFlightController(): boolean {
       // this is setup this way so we can include other linux boards in the list in the future
       const boardname = this.current_board?.name
