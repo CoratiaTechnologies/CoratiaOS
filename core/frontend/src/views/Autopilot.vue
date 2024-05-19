@@ -8,7 +8,7 @@
     <v-card>
       <v-card-title>Autopilot</v-card-title>
 
-      <img height="80" :src="banner" />
+      <!-- <img height="80" :src="banner" /> -->
 
       <v-card-text>
         <span v-if="board_undefined">No board running</span>
