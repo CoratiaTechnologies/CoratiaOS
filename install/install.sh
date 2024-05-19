@@ -225,6 +225,9 @@ sed -i "\%^exit 0%idocker start blueos-bootstrap" /etc/rc.local || echo "Failed 
 echo "Starting network configuration."
 curl -fsSL $ROOT/install/network/avahi.sh | bash
 
+echo "Automatically Install Extension"
+docker run -d --net=host -v /root/.config/blueos:/root/.config --name=BlueOS-Water-Linked-DVL --restart=unless-stopped williangalvani/blueos-dvl:latest
+
 # Following https://systemd.io/BUILDING_IMAGES/
 echo "Restarting machine-id."
 rm -rf /etc/machine-id /var/lib/dbus/machine-id
