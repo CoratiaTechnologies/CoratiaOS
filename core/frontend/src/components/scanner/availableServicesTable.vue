@@ -5,6 +5,7 @@
       colored-border
       type="info"
       elevation="2"
+      color="yellow"
     >
       Shows all available services running on CoratiaOS, including the service port,
       name, webpage, REST API endpoint, and swagger documentation per version.
