@@ -324,11 +324,11 @@
     <new-version-notificator />
     <Wizard />
     <alerter />
-    <VTour
+    <!-- <VTour
       name="welcomeTour"
       :steps="steps.filter((step) => step?.filter_wifi_connected !== wifi_connected)"
       :callbacks="tourCallbacks"
-    />
+    /> -->
   </v-app>
   <div v-else>
     <router-view />
