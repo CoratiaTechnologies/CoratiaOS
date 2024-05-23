@@ -23,6 +23,7 @@
           fab
           dark
           x-small
+          @click="openDialog"
         >
           <v-icon>
             mdi-pencil
@@ -153,7 +154,7 @@ export default Vue.extend({
       beacon.setHostname(this.mdns_hostname_input)
     },
     openDialog() {
-      this.dialog = true
+      this.dialog = false
     },
   },
 })
