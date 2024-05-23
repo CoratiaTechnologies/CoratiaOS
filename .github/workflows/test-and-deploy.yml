@@ -288,7 +288,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         run: |
           sudo apt install zip
-          zip CoratiaOS-raspberry.zip deploy/pimod/coratiaos.img
+          zip CoratiaOS-raspberry.zip deploy/pimod/blueos.img
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
