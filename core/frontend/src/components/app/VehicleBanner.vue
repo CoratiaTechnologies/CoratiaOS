@@ -23,7 +23,6 @@
           fab
           dark
           x-small
-          
         >
           <v-icon>
             mdi-pencil
