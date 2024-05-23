@@ -23,7 +23,7 @@
           fab
           dark
           x-small
-          @click="openDialog"
+          
         >
           <v-icon>
             mdi-pencil
