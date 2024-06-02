@@ -205,11 +205,11 @@ docker pull $BLUEOS_CORE
 # Use current release version for factory fallback
 docker image tag $BLUEOS_CORE $BLUEOS_FACTORY
 
-# Create blueos-bootstrap container
+# Create coratiaos-bootstrap container
 docker create \
     -t \
     --restart unless-stopped \
-    --name blueos-bootstrap \
+    --name coratiaos-bootstrap \
     --net=host \
     -v $HOME/.config/blueos/bootstrap:/root/.config/bootstrap \
     -v /var/run/docker.sock:/var/run/docker.sock \
@@ -218,7 +218,7 @@ docker create \
     $BLUEOS_BOOTSTRAP
 
 # add docker entry to rc.local
-sed -i "\%^exit 0%idocker start blueos-bootstrap" /etc/rc.local || echo "Failed to add docker start on rc.local, CoratiaOS will not start on boot!"
+sed -i "\%^exit 0%idocker start coratiaos-bootstrap" /etc/rc.local || echo "Failed to add docker start on rc.local, CoratiaOS will not start on boot!"
 
 # Configure network settings
 ## This should be after everything, otherwise network problems can happen
