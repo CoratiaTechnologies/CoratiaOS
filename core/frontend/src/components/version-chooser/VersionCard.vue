@@ -248,7 +248,7 @@ export default Vue.extend({
         return false
       }
       return this.settings.is_pirate_mode && this.current && !this.updateAvailable && this.isFromBR
-        && this.bootstrapVersion !== `${this.image.repository.split('/')[0]}/blueos-bootstrap:${this.image.tag}`
+        && this.bootstrapVersion !== `${this.image.repository.split('/')[0]}/coratiaos-bootstrap:${this.image.tag}`
     },
   },
   methods: {
