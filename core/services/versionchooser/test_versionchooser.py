@@ -135,7 +135,7 @@ image_list = [
         "Architecture": "amd64",
         "Id": "856fdf5e66c9b3697c25015556e7895c9066febb1a8ac8657a4eb41f2fc95a57",
         "RepoTags": [
-            "bluerobotics/blueos-core:test1",
+            "coratia/coratiaos-core:test1",
         ],
     },
     {
@@ -143,7 +143,7 @@ image_list = [
         "Architecture": "amd64",
         "Id": "856fdf5e66c9b36remoteID856fdf5e66c9b36",
         "RepoTags": [
-            "bluerobotics/blueos-core:test2",
+            "coratia/coratiaos-core:test2",
         ],
     },
 ]
