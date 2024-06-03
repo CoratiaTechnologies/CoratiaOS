@@ -25,7 +25,7 @@ class VersionChooser:
     def __init__(self, client: aiodocker.Docker):
         self.client = client
         self.cleanup()
-        self.bootstrap_name = "blueos-bootstrap"
+        self.bootstrap_name = "coratia-bootstrap"
 
     @staticmethod
     def cleanup() -> None:
