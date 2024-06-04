@@ -5,7 +5,7 @@ from setuptools import setup
 setup(
     name="blueos_bootstrap",
     version="0.0.1",
-    description="Blue Robotics Ardusub BlueOS Docker System Bootstrap",
+    description="Coratia Technologies Ardusub BlueOS Docker System Bootstrap",
     license="MIT",
     py_modules=[],
     install_requires=[

@@ -27,7 +27,7 @@ const vuetify = new Vuetify({
         warning: DEFAULT_COLORS.WARNING,
         critical: DEFAULT_COLORS.CRITICAL,
 
-        // Colors from Blue Robotics color palette
+        // Colors from Coratia Technologies color palette
         br_blue: BR_COLORS.BR_BLUE,
         mariner_blue: BR_COLORS.MARINER_BLUE,
         blue_whale: BR_COLORS.BLUE_WHALE,
@@ -46,7 +46,7 @@ const vuetify = new Vuetify({
         warning: DEFAULT_COLORS.WARNING,
         critical: DEFAULT_COLORS.CRITICAL,
 
-        // Colors from Blue Robotics color palette
+        // Colors from Coratia Technologies color palette
         br_blue: BR_COLORS.BR_BLUE,
         mariner_blue: BR_COLORS.MARINER_BLUE,
         blue_whale: BR_COLORS.BLUE_WHALE,

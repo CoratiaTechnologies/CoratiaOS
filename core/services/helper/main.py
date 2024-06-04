@@ -453,7 +453,7 @@ class Helper:
 
 fast_api_app = FastAPI(
     title="Helper API",
-    description="Everybody's helper to find web services that are running in BlueOS.",
+    description="Everybody's helper to find web services that are running in CoratiaOS.",
     default_response_class=PrettyJSONResponse,
 )
 fast_api_app.router.route_class = GenericErrorHandlingRoute
@@ -483,7 +483,7 @@ def check_internet_access() -> Any:
 @fast_api_app.get(
     "/internet_best_server",
     response_model=SpeedTestResult,
-    summary="Check internet best server for test from BlueOS.",
+    summary="Check internet best server for test from CoratiaOS.",
 )
 @version(1, 0)
 async def internet_best_server() -> Any:
@@ -498,7 +498,7 @@ async def internet_best_server() -> Any:
 @fast_api_app.get(
     "/internet_download_speed",
     response_model=SpeedTestResult,
-    summary="Check internet download speed test from BlueOS.",
+    summary="Check internet download speed test from CoratiaOS.",
 )
 @version(1, 0)
 async def internet_download_speed() -> Any:
@@ -511,7 +511,7 @@ async def internet_download_speed() -> Any:
 @fast_api_app.get(
     "/internet_upload_speed",
     response_model=SpeedTestResult,
-    summary="Check internet upload speed test from BlueOS.",
+    summary="Check internet upload speed test from CoratiaOS.",
 )
 @version(1, 0)
 async def internet_upload_speed() -> Any:

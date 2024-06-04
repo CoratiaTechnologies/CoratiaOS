@@ -9,7 +9,7 @@
       :src="image !== null ? image : defaultImage"
       @click="openDialog()"
     />
-    <v-btn
+    <!-- <v-btn
       id="edit-icon"
       class="mx-2"
       fab
@@ -20,7 +20,7 @@
       <v-icon>
         mdi-pencil
       </v-icon>
-    </v-btn>
+    </v-btn> -->
     <v-dialog v-model="dialog" @dragover.prevent @dragenter.prevent @drop.prevent="onDrop">
       <v-card class="pa-2">
         <v-card-title>

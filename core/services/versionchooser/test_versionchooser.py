@@ -12,7 +12,7 @@ pytestmark = pytest.mark.asyncio
 SAMPLE_JSON = """{
     "core": {
         "tag": "master",
-        "image": "bluerobotics/blueos-core",
+        "image": "coratia/coratiaos-core",
         "enabled": true,
         "webui": false,
         "network": "host",
@@ -68,16 +68,16 @@ async def test_get_version() -> None:
         if response.text is None:
             raise RuntimeError("text should be not None")
         result = json.loads(response.text)
-        assert result["repository"] == "bluerobotics/blueos-core"
+        assert result["repository"] == "coratia/coratiaos-core"
         assert result["tag"] == "master"
         assert len(client_mock.mock_calls) > 0
 
 
-version = {"tag": "master", "image": "bluerobotics/blueos-core", "pull": False}
+version = {"tag": "master", "image": "coratia/coratiaos-core", "pull": False}
 
 EXPECTED_SET_VERSION_WRITE_CALL = """{  "core": {
     "tag": "master",
-    "image": "bluerobotics/blueos-core",
+    "image": "coratia/coratiaos-core",
     "enabled": true,
   '
             '  "webui": false,
@@ -111,7 +111,7 @@ async def test_set_version(write_mock: AsyncMock) -> None:
     chooser = VersionChooser(client)
     with mock.patch("builtins.open", mock.mock_open(read_data=SAMPLE_JSON)):
 
-        result = await chooser.set_version("bluerobotics/blueos-core", "master")
+        result = await chooser.set_version("coratia/coratiaos-core", "master")
         assert await write_mock.called_once_with(EXPECTED_SET_VERSION_WRITE_CALL)
         assert result.status == 200
 
@@ -124,7 +124,7 @@ async def test_set_version_invalid_settings(json_mock: mock.MagicMock) -> None:
     with mock.patch("builtins.open", mock.mock_open(read_data="{}")):
         request_mock = AsyncMock()
         request_mock.json = AsyncMock(return_value=version)
-        result = await chooser.set_version("bluerobotics/blueos-core", "master")
+        result = await chooser.set_version("coratia/coratiaos-core", "master")
         assert result.status == 500
         assert len(json_mock.mock_calls) > 0
 
@@ -135,7 +135,7 @@ image_list = [
         "Architecture": "amd64",
         "Id": "856fdf5e66c9b3697c25015556e7895c9066febb1a8ac8657a4eb41f2fc95a57",
         "RepoTags": [
-            "bluerobotics/blueos-core:test1",
+            "coratia/coratiaos-core:test1",
         ],
     },
     {
@@ -143,7 +143,7 @@ image_list = [
         "Architecture": "amd64",
         "Id": "856fdf5e66c9b36remoteID856fdf5e66c9b36",
         "RepoTags": [
-            "bluerobotics/blueos-core:test2",
+            "coratia/coratiaos-core:test2",
         ],
     },
 ]
@@ -160,7 +160,7 @@ async def test_get_available_versions_dockerhub_unavailable(
     attrs = {"images.list.return_value": image_list}
     client_mock.configure_mock(**attrs)
     chooser = VersionChooser(client_mock)
-    result = await chooser.get_available_versions("bluerobotics/blueos-core")
+    result = await chooser.get_available_versions("coratia/coratiaos-core")
     if result.text is None:
         raise RuntimeError("text should be not None")
     data = json.loads(result.text)
@@ -178,7 +178,7 @@ async def test_get_available_versions() -> None:
     client_mock.configure_mock(**attrs)
 
     chooser = VersionChooser(client_mock)
-    result = await chooser.get_available_versions("bluerobotics/blueos-core")
+    result = await chooser.get_available_versions("coratia/coratiaos-core")
     if result.text is None:
         raise RuntimeError("text should be not None")
     data = json.loads(result.text)
@@ -217,6 +217,6 @@ async def test_set_version_json_exception(json_mock: mock.MagicMock) -> None:
     json_mock.side_effect = Exception()
     chooser = VersionChooser(client)
     with mock.patch("builtins.open", mock.mock_open(read_data="{}")):
-        result = await chooser.set_version("bluerobotics/blueos-core", "master")
+        result = await chooser.set_version("coratia/coratiaos-core", "master")
         assert result.status == 500
         assert len(json_mock.mock_calls) > 0

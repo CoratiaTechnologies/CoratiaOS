@@ -1,8 +1,8 @@
 version: '3.7'
 services:
-  blueos-core:
-    image: bluerobotics/blueos-core:master
-    container_name: blueos-core
+  coratiaos-core:
+    image: coratia/coratiaos-core:master
+    container_name: coratiaos-core
     privileged: true
     # This can be used as an alternative to ports binding
     # Using host as a network mode is only supported for linux

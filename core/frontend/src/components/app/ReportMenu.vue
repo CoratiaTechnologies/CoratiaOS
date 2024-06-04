@@ -51,7 +51,7 @@
               >
                 $si-discourse
               </v-icon>
-              On Blue Robotics forum
+              On Coratia Technologies forum
             </v-btn>
           </v-card-actions>
         </v-container>
@@ -85,8 +85,8 @@ export default Vue.extend({
       url.pathname = '/new-topic'
 
       const parameters = {
-        title: 'BlueOS feedback - (Please add a title here)',
-        body: 'Blue OS Version: (You can check on the bottom of the main menu)\n- - -\nFeedback content',
+        title: 'CoratiaOS feedback - (Please add a title here)',
+        body: 'Coratia OS Version: (You can check on the bottom of the main menu)\n- - -\nFeedback content',
         category_id: 85,
         tags: ['frontend'],
       }

@@ -14,7 +14,7 @@ RUNNING_IN_CI=0 # default to not running CI mode/docker-in-docker
 usage_help()
 {
     cat <<EOF
-BlueOS Installer
+CoratiaOS Installer
 Usage: install.sh [options]
 
 Options:
@@ -196,20 +196,20 @@ command -v raspi-config && (
 )
 
 echo "Downloading bootstrap"
-BLUEOS_BOOTSTRAP="bluerobotics/blueos-bootstrap:$VERSION" # Use current version
-BLUEOS_CORE="bluerobotics/blueos-core:$VERSION" # We don't have a stable tag yet
-BLUEOS_FACTORY="bluerobotics/blueos-core:factory" # used for "factory reset"
+BLUEOS_BOOTSTRAP="coratia/coratiaos-bootstrap:$VERSION" # Use current version
+BLUEOS_CORE="coratia/coratiaos-core:$VERSION" # We don't have a stable tag yet
+BLUEOS_FACTORY="coratia/coratiaos-core:factory" # used for "factory reset"
 
 docker pull $BLUEOS_BOOTSTRAP
 docker pull $BLUEOS_CORE
 # Use current release version for factory fallback
 docker image tag $BLUEOS_CORE $BLUEOS_FACTORY
 
-# Create blueos-bootstrap container
+# Create coratiaos-bootstrap container
 docker create \
     -t \
     --restart unless-stopped \
-    --name blueos-bootstrap \
+    --name coratiaos-bootstrap \
     --net=host \
     -v $HOME/.config/blueos/bootstrap:/root/.config/bootstrap \
     -v /var/run/docker.sock:/var/run/docker.sock \
@@ -218,12 +218,15 @@ docker create \
     $BLUEOS_BOOTSTRAP
 
 # add docker entry to rc.local
-sed -i "\%^exit 0%idocker start blueos-bootstrap" /etc/rc.local || echo "Failed to add docker start on rc.local, BlueOS will not start on boot!"
+sed -i "\%^exit 0%idocker start coratiaos-bootstrap" /etc/rc.local || echo "Failed to add docker start on rc.local, CoratiaOS will not start on boot!"
 
 # Configure network settings
 ## This should be after everything, otherwise network problems can happen
 echo "Starting network configuration."
 curl -fsSL $ROOT/install/network/avahi.sh | bash
+
+echo "Automatically Install Extension"
+docker run -d --net=host -v /root/.config/blueos:/root/.config --name=BlueOS-Water-Linked-DVL --restart=unless-stopped williangalvani/blueos-dvl:latest
 
 # Following https://systemd.io/BUILDING_IMAGES/
 echo "Restarting machine-id."
@@ -239,7 +242,7 @@ rm -rf /var/lib/systemd/random-seed /loader/random-seed
 
 echo "Installation finished successfully."
 echo "You can access after the reboot:"
-echo "- The computer webpage: http://blueos-avahi.local"
-echo "- The ssh client: $USER@blueos-avahi.local"
+# echo "- The computer webpage: http://blueos-avahi.local"
+# echo "- The ssh client: $USER@blueos-avahi.local"
 echo "System will reboot in 10 seconds."
 sleep 10 && reboot
