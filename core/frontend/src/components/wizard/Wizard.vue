@@ -42,9 +42,9 @@
           <v-stepper-content step="0">
             <v-card class="ma-2 pa-5">
               <div class="welcome" style="display: flex; justify-content: center; align-items: center; width: 100%;">
-                Welcome to BlueOS!
+                Welcome to CoratiaOS!
               </div>
-              Welcome to BlueOS!
+              Welcome to CoratiaOS!
               In this setup wizard we will guide you through the initial configuration of your vehicle.
               including setting up the vehicle name, hostname, and <b>firmware</b>.
               If your vehicle is already set up, you can skip this wizard.
@@ -242,7 +242,7 @@
         </v-card-text>
         <v-card-actions class="justify-center pa-4">
           <v-btn
-            v-tooltip="'The wizard will show again during BlueOS usage'"
+            v-tooltip="'The wizard will show again during CoratiaOS usage'"
             color="warning"
             @click="skipWizard()"
           >
@@ -250,7 +250,7 @@
           </v-btn>
           <v-spacer />
           <v-btn
-            v-tooltip="'The wizard will only show if BlueOS is updated and further configuration is necessary'"
+            v-tooltip="'The wizard will only show if CoratiaOS is updated and further configuration is necessary'"
             color="error"
             @click="skipWizard(false)"
           >
@@ -333,12 +333,12 @@ export default Vue.extend({
       configuration_failed: false,
       error_message: 'The operation failed!',
       apply_status: ApplyStatus.Waiting,
-      mdns_name: 'blueos',
+      mdns_name: 'coratiaos',
       show_skip: false,
       should_open: false,
       step_number: 0,
       sub_model: get_model('sub', 'bluerov'),
-      vehicle_name: 'blueos',
+      vehicle_name: 'Jalasimha',
       vehicle_type: Vehicle.Sub,
       vehicle_image: null as string | null,
       // Allow us to check if the user is stuck in retry

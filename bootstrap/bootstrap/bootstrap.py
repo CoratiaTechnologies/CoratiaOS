@@ -19,8 +19,8 @@ class Bootstrapper:
     DOCKER_CONFIG_PATH = pathlib.Path("/root/.config")
     DOCKER_CONFIG_FILE_PATH = DOCKER_CONFIG_PATH.joinpath("bootstrap/startup.json")
     HOST_CONFIG_PATH = os.environ.get("BLUEOS_CONFIG_PATH", "/tmp/blueos/.config")
-    CORE_CONTAINER_NAME = "blueos-core"
-    BOOTSTRAP_CONTAINER_NAME = "blueos-bootstrap"
+    CORE_CONTAINER_NAME = "coratiaos-core"
+    BOOTSTRAP_CONTAINER_NAME = "coratiaos-bootstrap"
     SETTINGS_NAME_CORE = "core"
     core_last_response_time = time.monotonic()
 
@@ -194,7 +194,7 @@ class Bootstrapper:
         try:
             self.client.containers.run(
                 docker_name,
-                name=f"blueos-{component_name}",
+                name=f"coratiaos-{component_name}",
                 volumes=binds,
                 privileged=privileged,
                 network=network,
@@ -209,7 +209,7 @@ class Bootstrapper:
         return True
 
     def is_running(self, component: str) -> bool:
-        """Checks if the container for a given component of blueos is running
+        """Checks if the container for a given component of coratiaos is running
 
         Args:
             component (str): component name ("core", "bootstrap", "ttyd", ...)
@@ -238,7 +238,7 @@ class Bootstrapper:
     def remove(self, container: str) -> None:
         """Deletes the chosen container if it exists (needed for updating the running image)"""
         try:
-            old_container = self.client.containers.get(f"blueos-{container}")
+            old_container = self.client.containers.get(f"coratiaos-{container}")
             old_container.stop()
             old_container.remove()
         except docker.errors.NotFound:

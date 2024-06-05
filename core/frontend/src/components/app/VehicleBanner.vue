@@ -5,7 +5,7 @@
         size="35px"
         directory="/userdata/images/vehicle"
         :readonly-files="['/assets/vehicles/images/bluerov2.png', '/assets/vehicles/images/bb120.png']"
-        :default-image="require('@/assets/vehicles/images/unknown.svg')"
+        :default-image="require('@/assets/vehicles/images/bluerov2.png')"
         :image="vehicle_image"
         @image-selected="save_vehicle_image"
       />
@@ -128,7 +128,7 @@ export default Vue.extend({
     },
     update_title() {
       const sysid = this.system_id !== 1 ? `(${this.system_id}) ` : ''
-      document.title = `${sysid}${this.vehicle_name} - BlueOS`
+      document.title = `${sysid}${this.vehicle_name} - CoratiaOS`
     },
     save() {
       this.save_name()
@@ -154,7 +154,7 @@ export default Vue.extend({
       beacon.setHostname(this.mdns_hostname_input)
     },
     openDialog() {
-      this.dialog = true
+      this.dialog = false
     },
   },
 })

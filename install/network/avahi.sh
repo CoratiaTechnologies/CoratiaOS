@@ -15,7 +15,7 @@ systemctl is-active --quiet avahi-daemon || (
     exit 1
 )
 
-echo "Configuring blueos avahi service"
+echo "Configuring coratiaos avahi service"
 AVAHI_SERVICE_PATH="/etc/avahi/services"
 [ ! -d "${AVAHI_SERVICE_PATH}" ] && (
     echo "Avahi service directory does not exist: ${AVAHI_SERVICE_PATH}"
@@ -30,9 +30,9 @@ AVAHI_HOST_NAME="blueos-avahi"
     sed -i "s/#host-name=.*/host-name=${AVAHI_HOST_NAME}/g" ${AVAHI_DAEMON_CONFIG_PATH}
 ) || echo "Avahi daemon config file not found in ${AVAHI_DAEMON_CONFIG_PATH}"
 
-echo "Configure hostname to blueos"
+echo "Configure hostname to coratiaos"
 OLD_HOSTNAME="$(cat /etc/hostname)"
-NEW_HOSTNAME="blueos"
+NEW_HOSTNAME="coratiaos"
 # Overwrite with new name
 echo $NEW_HOSTNAME > /etc/hostname
 # Replace current name

@@ -31,7 +31,7 @@ from typedefs import Firmware, FlightController, Parameters, Serial, SITLFrame, 
 
 FRONTEND_FOLDER = Path.joinpath(Path(__file__).parent.absolute(), "frontend")
 
-parser = argparse.ArgumentParser(description="ArduPilot Manager service for Blue Robotics BlueOS")
+parser = argparse.ArgumentParser(description="ArduPilot Manager service for Coratia Technologies CoratiaOS")
 parser.add_argument("-s", "--sitl", help="run SITL instead of connecting any board", action="store_true")
 
 args = parser.parse_args()

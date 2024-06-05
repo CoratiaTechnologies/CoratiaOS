@@ -5,8 +5,9 @@
       colored-border
       type="info"
       elevation="2"
+      color="yellow"
     >
-      Shows all available services running on BlueOS, including the service port,
+      Shows all available services running on CoratiaOS, including the service port,
       name, webpage, REST API endpoint, and swagger documentation per version.
 
       API endpoint links provide direct manual access to the APIs, and can be used

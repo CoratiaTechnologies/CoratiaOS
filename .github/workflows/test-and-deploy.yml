@@ -82,7 +82,7 @@ jobs:
     strategy:
       matrix:
         docker: [bootstrap, core]
-        project: [blueos]
+        project: [coratiaos]
         platforms: ["linux/arm/v7,linux/arm64/v8,linux/amd64"]
     steps:
       - name: Checkout
@@ -190,13 +190,13 @@ jobs:
             ${{ steps.prepare.outputs.buildx_args }} \
             --platform "linux/arm64/v8"  \
             --tag ${DOCKER_IMAGE}:${GIT_HASH_SHORT} \
-            --output "type=docker,dest=BlueOs-core-docker-image-${GIT_HASH_SHORT}-arm64-v8.tar" \
+            --output "type=docker,dest=CoratiaOS-core-docker-image-${GIT_HASH_SHORT}-arm64-v8.tar" \
 
       - name: Upload artifact arm64-v8
         uses: actions/upload-artifact@v3
         if: success() && matrix.docker == 'core'
         with:
-          name: BlueOS-core-docker-image-arm64-v8
+          name: CoratiaOS-core-docker-image-arm64-v8
           path: '*arm64-v8.tar'
 
       - name: Create image artifact
@@ -208,13 +208,13 @@ jobs:
             ${{ steps.prepare.outputs.buildx_args }} \
             --platform "linux/arm/v7"  \
             --tag ${DOCKER_IMAGE}:${GIT_HASH_SHORT} \
-            --output "type=docker,dest=BlueOs-core-docker-image-${GIT_HASH_SHORT}-arm-v7.tar" \
+            --output "type=docker,dest=CoratiaOS-core-docker-image-${GIT_HASH_SHORT}-arm-v7.tar" \
 
       - name: Upload artifact arm-v7
         uses: actions/upload-artifact@v3
         if: success() && matrix.docker == 'core'
         with:
-          name: BlueOS-core-docker-image-arm-v7
+          name: CoratiaOS-core-docker-image-arm-v7
           path: '*arm-v7.tar'
 
       - name: Create image artifact
@@ -226,13 +226,13 @@ jobs:
             ${{ steps.prepare.outputs.buildx_args }} \
             --platform "linux/amd64"  \
             --tag ${DOCKER_IMAGE}:${GIT_HASH_SHORT} \
-            --output "type=docker,dest=BlueOs-core-docker-image-${GIT_HASH_SHORT}-amd64.tar" \
+            --output "type=docker,dest=CoratiaOS-core-docker-image-${GIT_HASH_SHORT}-amd64.tar" \
 
       - name: Upload artifact amd64
         uses: actions/upload-artifact@v3
         if: success() && matrix.docker == 'core'
         with:
-          name: BlueOS-core-docker-image-amd64
+          name: CoratiaOS-core-docker-image-amd64
           path: '*amd64.tar'
 
       - name: Upload docker image for release
@@ -288,14 +288,14 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         run: |
           sudo apt install zip
-          zip BlueOS-raspberry.zip deploy/pimod/blueos.img
+          zip CoratiaOS-raspberry.zip deploy/pimod/blueos.img
 
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         timeout-minutes: 120
         with:
           # We use the .img to avoid a zip of a zip
-          name: BlueOS-raspberry.zip
+          name: CoratiaOS-raspberry.zip
           path: deploy/pimod/blueos.img
           if-no-files-found: error
           retention-days: 7
@@ -305,7 +305,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: BlueOS-raspberry.zip
+          file: CoratiaOS-raspberry.zip
           tag: ${{ github.ref }}
           overwrite: true
           prerelease: true
